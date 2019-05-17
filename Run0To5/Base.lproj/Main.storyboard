@@ -150,13 +150,13 @@
                                                                     <constraint firstItem="vaf-YL-eqi" firstAttribute="centerX" secondItem="4ND-9U-wdY" secondAttribute="centerX" id="VPW-2g-UQ5"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vQb-zm-B7n">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vQb-zm-B7n" userLabel="pickerAndMessage containerView">
                                                                 <rect key="frame" x="0.0" y="277" width="318" height="269"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ne4-4X-fJB">
                                                                         <rect key="frame" x="8" y="8" width="302" height="253"/>
                                                                         <subviews>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8yz-7s-uf8">
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8yz-7s-uf8" userLabel="runWalkContainerView">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="302" height="126.5"/>
                                                                                 <subviews>
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mTQ-ii-yk6">
@@ -180,7 +180,7 @@
                                                                                         </constraints>
                                                                                     </stackView>
                                                                                 </subviews>
-                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <constraints>
                                                                                     <constraint firstItem="mTQ-ii-yk6" firstAttribute="top" secondItem="8yz-7s-uf8" secondAttribute="top" constant="8" id="Bw9-gg-YF2"/>
                                                                                     <constraint firstAttribute="trailing" secondItem="mTQ-ii-yk6" secondAttribute="trailing" constant="8" id="TJZ-fo-t5h"/>
@@ -188,17 +188,18 @@
                                                                                     <constraint firstItem="mTQ-ii-yk6" firstAttribute="leading" secondItem="8yz-7s-uf8" secondAttribute="leading" constant="8" id="nB6-zQ-6DN"/>
                                                                                 </constraints>
                                                                             </view>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Trq-LM-ByI">
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Trq-LM-ByI" userLabel="MessageView">
                                                                                 <rect key="frame" x="0.0" y="126.5" width="302" height="126.5"/>
-                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             </view>
                                                                         </subviews>
+                                                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstItem="Trq-LM-ByI" firstAttribute="height" secondItem="8yz-7s-uf8" secondAttribute="height" id="OJ1-lJ-iQJ"/>
                                                                         </constraints>
                                                                     </stackView>
                                                                 </subviews>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="bottom" secondItem="ne4-4X-fJB" secondAttribute="bottom" constant="8" id="5we-jR-Mtq"/>
                                                                     <constraint firstItem="ne4-4X-fJB" firstAttribute="top" secondItem="vQb-zm-B7n" secondAttribute="top" constant="8" id="76m-ob-Rvv"/>
@@ -249,7 +250,9 @@
                         <outlet property="mainControlView" destination="vaf-YL-eqi" id="rki-kz-D3l"/>
                         <outlet property="pauseView" destination="GPH-H5-o9j" id="ZQT-CH-N2a"/>
                         <outlet property="playView" destination="GtG-D4-cHV" id="ugL-KM-ueB"/>
+                        <outlet property="runPauseLabel" destination="SoF-Ti-gtM" id="p8x-6D-6iP"/>
                         <outlet property="runTextField" destination="2D0-OZ-uqF" id="PdR-Q4-Yjg"/>
+                        <outlet property="timerLabel" destination="frZ-qm-fLI" id="AZ8-Pd-kMP"/>
                         <outlet property="walkTextField" destination="hVg-8c-quk" id="8ld-Y0-ozb"/>
                     </connections>
                 </viewController>

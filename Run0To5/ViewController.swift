@@ -19,6 +19,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var runTextField: UITextField!
     @IBOutlet weak var walkTextField: UITextField!
     
+    @IBOutlet weak var timerLabel: UILabel!
+    
+    @IBOutlet weak var runPauseLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
