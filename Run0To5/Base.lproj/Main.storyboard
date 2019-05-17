@@ -115,10 +115,32 @@
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vaf-YL-eqi">
                                                                         <rect key="frame" x="29" y="4.5" width="260" height="260"/>
+                                                                        <subviews>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frZ-qm-fLI">
+                                                                                <rect key="frame" x="86" y="112" width="88" height="36"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RUN!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SoF-Ti-gtM">
+                                                                                <rect key="frame" x="97.5" y="83" width="65" height="21"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="21" id="6P0-vX-OrS"/>
+                                                                                </constraints>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                        </subviews>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
+                                                                            <constraint firstItem="frZ-qm-fLI" firstAttribute="top" secondItem="SoF-Ti-gtM" secondAttribute="bottom" constant="8" id="ARH-Gb-WPT"/>
+                                                                            <constraint firstItem="frZ-qm-fLI" firstAttribute="centerY" secondItem="vaf-YL-eqi" secondAttribute="centerY" id="BBb-97-rug"/>
                                                                             <constraint firstAttribute="height" constant="260" id="S6L-1r-G0j"/>
+                                                                            <constraint firstItem="frZ-qm-fLI" firstAttribute="centerX" secondItem="vaf-YL-eqi" secondAttribute="centerX" id="Zna-5w-jZg"/>
                                                                             <constraint firstAttribute="width" constant="260" id="jLZ-1N-1rA"/>
+                                                                            <constraint firstItem="SoF-Ti-gtM" firstAttribute="top" secondItem="vaf-YL-eqi" secondAttribute="top" constant="83" id="oP8-4v-cO3"/>
+                                                                            <constraint firstItem="SoF-Ti-gtM" firstAttribute="centerX" secondItem="frZ-qm-fLI" secondAttribute="centerX" id="vXg-2r-e2r"/>
                                                                         </constraints>
                                                                     </view>
                                                                 </subviews>
@@ -235,6 +257,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="34.782608695652179" y="18.75"/>
         </scene>
     </scenes>
     <resources>
