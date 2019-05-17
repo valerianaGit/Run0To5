@@ -12,9 +12,7 @@ class ViewController: UIViewController {
 
     //MARK: - Properties
     
-    @IBOutlet weak var topView: UIView!
-    @IBOutlet weak var bottomView: UIView!
-    
+ 
     @IBOutlet weak var playView: UIView!
     @IBOutlet weak var pauseView: UIView!
     @IBOutlet weak var mainControlView: UIView!
@@ -29,9 +27,7 @@ class ViewController: UIViewController {
     }
     
    func setupViews() {
-    //round corners
-    topView.layer.cornerRadius = 10
-    bottomView.layer.cornerRadius = 10
+
     
     //Build Circles out of square views
     mainControlView.layer.cornerRadius = 130

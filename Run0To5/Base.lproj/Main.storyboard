@@ -246,12 +246,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="bottomView" destination="bId-Oq-g2w" id="6Wn-H1-ZZY"/>
                         <outlet property="mainControlView" destination="vaf-YL-eqi" id="rki-kz-D3l"/>
                         <outlet property="pauseView" destination="GPH-H5-o9j" id="ZQT-CH-N2a"/>
                         <outlet property="playView" destination="GtG-D4-cHV" id="ugL-KM-ueB"/>
                         <outlet property="runTextField" destination="2D0-OZ-uqF" id="PdR-Q4-Yjg"/>
-                        <outlet property="topView" destination="150-mc-SAY" id="YCq-s9-tLW"/>
                         <outlet property="walkTextField" destination="hVg-8c-quk" id="8ld-Y0-ozb"/>
                     </connections>
                 </viewController>
