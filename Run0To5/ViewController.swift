@@ -8,20 +8,18 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     //MARK: - Properties
-    
- 
-    @IBOutlet weak var playView: UIView!
-    @IBOutlet weak var pauseView: UIView!
+    @IBOutlet weak var playView: UIView! //add gesture recognizer..start counting down
+    @IBOutlet weak var pauseView: UIView! //add gesture recognizer - pause activity
     @IBOutlet weak var mainControlView: UIView!
-    @IBOutlet weak var runTextField: UITextField!
-    @IBOutlet weak var walkTextField: UITextField!
-    
-    @IBOutlet weak var timerLabel: UILabel!
-    
-    @IBOutlet weak var runPauseLabel: UILabel!
+    @IBOutlet weak var runTextField: UITextField! //make into pickerview
+    @IBOutlet weak var walkTextField: UITextField! //make into pickerview
+    @IBOutlet weak var timerLabel: UILabel! //update this with the timer
+    @IBOutlet weak var runPauseLabel: UILabel! //just update whether run/walk
+    //MARK: - Data Sources
+    let runPickerIntervals = [1, 1.5, 2, 3, 5, 6, 8, 10, 12, 15, 20, 25, 30, 40, 50, 60]
+    let walkPickerIntervals = [1, 1.5, 2]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,17 +28,47 @@ class ViewController: UIViewController {
     }
     
    func setupViews() {
-
-    
     //Build Circles out of square views
     mainControlView.layer.cornerRadius = 130
     playView.layer.cornerRadius = 50
     pauseView.layer.cornerRadius = 50
-    
-    
-    
+    //build pickerviews
+    let runPicker = UIPickerView()
+    let walkPicker = UIPickerView()
+    walkPicker.delegate = self
+    runPicker.delegate = self
+    runTextField.inputView = runPicker
+    walkTextField.inputView = walkPicker
+  
     }
-
-
+    
+    //MARK: - Pickerview delegate
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if runTextField.isFirstResponder {
+            return runPickerIntervals.count
+        } else /*if walkTextField.isFirstResponder */{
+           return walkPickerIntervals.count
+        }
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if runTextField.isFirstResponder {
+            return String(runPickerIntervals[row])
+        } else /*if walkTextField.isFirstResponder */{
+            return String(walkPickerIntervals[row])
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if runTextField.isFirstResponder {
+            runTextField.text = String(runPickerIntervals[row])
+        } else /*if walkTextField.isFirstResponder */{
+             walkTextField.text = String(walkPickerIntervals[row])
+        }
+    }
+    
 }
 
