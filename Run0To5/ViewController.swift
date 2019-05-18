@@ -10,13 +10,16 @@ import UIKit
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     //MARK: - Properties
-    @IBOutlet weak var playView: UIView! //add gesture recognizer..start counting down
+    @IBOutlet weak var playView: UIView! //add gesture recognizer..start counting down - when someone presses play, it starts 5 minute warm up walk, then the intervals they posted , between run-walk, then ends with 5 minute walk
     @IBOutlet weak var pauseView: UIView! //add gesture recognizer - pause activity
     @IBOutlet weak var mainControlView: UIView!
-    @IBOutlet weak var runTextField: UITextField! //make into pickerview
-    @IBOutlet weak var walkTextField: UITextField! //make into pickerview
-    @IBOutlet weak var timerLabel: UILabel! //update this with the timer
+    @IBOutlet weak var runTextField: UITextField!
+    @IBOutlet weak var walkTextField: UITextField!
+    @IBOutlet weak var timerLabel: UILabel! //update this with the timer,  -  create timer , update it with values chosen from intervals
     @IBOutlet weak var runPauseLabel: UILabel! //just update whether run/walk
+    
+    @IBOutlet weak var totalIntervalsToRun: UILabel!
+    
     //MARK: - Data Sources - picker views
     let runPickerIntervals = [1, 1.5, 2, 3, 5, 6, 8, 10, 12, 15, 20, 25, 30, 40, 50, 60]
     let walkPickerIntervals = [1, 1.5, 2]
