@@ -39,8 +39,32 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     runPicker.delegate = self
     runTextField.inputView = runPicker
     walkTextField.inputView = walkPicker
-  
+    //add tool bar
+    let runToolBar = UIToolbar()
+    let walkToolBar = UIToolbar()
+    runToolBar.barStyle = .default
+    walkToolBar.barStyle = .default
+    runToolBar.isTranslucent = true
+    walkToolBar.isTranslucent = true
+   // let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(donePressed))
+    let runTitleButton = UIBarButtonItem(title: "Minute Intervals to Run", style: .plain, target: self, action: #selector(donePressed))
+    let walkTitleButton = UIBarButtonItem(title: "Minute Intervals to Walk", style: .plain, target: self, action: #selector(donePressed))
+    let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+    runToolBar.setItems([spaceButton, runTitleButton, spaceButton], animated: true)
+    walkToolBar.setItems([spaceButton, walkTitleButton, spaceButton], animated: true)
+    runToolBar.isUserInteractionEnabled = true
+    walkToolBar.isUserInteractionEnabled = true
+    runToolBar.sizeToFit()
+    walkToolBar.sizeToFit()
+    //runTextField.delegate = self
+    runTextField.inputAccessoryView = runToolBar
+    walkTextField.inputAccessoryView = walkToolBar
     }
+    
+    @objc func donePressed() {
+        view.endEditing(true)
+    }
+    
     
     //MARK: - Pickerview delegate
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
