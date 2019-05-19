@@ -34,13 +34,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     override func viewDidAppear(_ animated: Bool) {
-//        let labelWidth = runPicker.frame.width / CGFloat(runPicker.numberOfComponents)
-//
-//        for index in 0..<trekRowTitles.count {
-//            let label: UILabel = UILabel.init(frame: CGRect(x: runPicker.frame.origin.x + labelWidth * CGFloat(index), y: 0, width: labelWidth, height: 20))
-//            label.text = trekRowTitles[index]
-//            label.textAlignment = .center
-//            runPicker.addSubview(label)    }
         addTitlesToEachPickerComponent()
     }
    
@@ -125,7 +118,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             let selected1 = pickerView.selectedRow(inComponent: 0)
             let selected2 = pickerView.selectedRow(inComponent: 1)
             
-            runTextField.text = "\(runPickerIntervals[0][selected1]) and \(runPickerIntervals[1][selected2])" //String(runPickerIntervals[row])
+            runTextField.text = "\(runPickerIntervals[0][selected1]) run \(runPickerIntervals[1][selected2]) walk"
             
             
         } else {
