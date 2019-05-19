@@ -18,15 +18,30 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var timerLabel: UILabel! //update this with the timer,  -  create timer , update it with values chosen from intervals
     @IBOutlet weak var runPauseLabel: UILabel! //just update whether run/walk
     
-    @IBOutlet weak var totalIntervalsToRun: UILabel!
+    @IBOutlet weak var totalIntervalsToRun: UILabel! //follow which interval we are on
     
+    let runPicker = UIPickerView()
+    let walkPicker = UIPickerView()
     //MARK: - Data Sources - picker views
-    let runPickerIntervals = [1, 1.5, 2, 3, 5, 6, 8, 10, 12, 15, 20, 25, 30, 40, 50, 60]
-    let walkPickerIntervals = [1, 1.5, 2]
+    let runPickerIntervals = [[1, 1.5, 2, 3, 5, 6, 8, 10, 12, 15, 20, 25, 30, 40, 50, 60], [1, 1.5, 2]]
+    //let walkPickerIntervals = [1, 1.5, 2]
+    let trekRowTitles = ["RUN minutes", "WALK minutes"]
+    let totalWorkoutLength = [30, 45, 60, 90, 120]
     //MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+//        let labelWidth = runPicker.frame.width / CGFloat(runPicker.numberOfComponents)
+//
+//        for index in 0..<trekRowTitles.count {
+//            let label: UILabel = UILabel.init(frame: CGRect(x: runPicker.frame.origin.x + labelWidth * CGFloat(index), y: 0, width: labelWidth, height: 20))
+//            label.text = trekRowTitles[index]
+//            label.textAlignment = .center
+//            runPicker.addSubview(label)    }
+        addTitlesToEachPickerComponent()
     }
    
    func setupViews() {
@@ -39,10 +54,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
  }
     //MARK: - Picker view building methods
     func buildPickerViews() {
-        let runPicker = UIPickerView()
-        let walkPicker = UIPickerView()
+        
         walkPicker.delegate = self
         runPicker.delegate = self
+        walkPicker.dataSource = self
+        runPicker.dataSource = self
         runTextField.inputView = runPicker
         walkTextField.inputView = walkPicker
     }
@@ -66,6 +82,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         runTextField.inputAccessoryView = runToolBar
         walkTextField.inputAccessoryView = walkToolBar
     }
+    func addTitlesToEachPickerComponent() {
+        let labelWidth = runPicker.frame.width / CGFloat(runPicker.numberOfComponents) - 112
+        for index in 0..<trekRowTitles.count {
+            let label: UILabel = UILabel.init(frame: CGRect(x: runPicker.frame.origin.x + labelWidth * CGFloat(index), y: 0, width: labelWidth, height: 20))
+            label.text = trekRowTitles[index]
+            label.textAlignment = .center
+            runPicker.addSubview(label)    }
+    }
     
     @objc func donePressed() {
         view.endEditing(true)
@@ -74,29 +98,38 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     //MARK: - Pickerview delegate
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+        if runTextField.isFirstResponder {
+            return trekRowTitles.count
+        } else {
+            return 1
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if runTextField.isFirstResponder {
-            return runPickerIntervals.count
+            return runPickerIntervals[component].count
         } else {
-           return walkPickerIntervals.count
+           return totalWorkoutLength.count
         }
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if runTextField.isFirstResponder {
-            return String(runPickerIntervals[row])
+            return String(runPickerIntervals[component][row])
         } else {
-            return String(walkPickerIntervals[row])
+            return String(totalWorkoutLength[row])
         }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if runTextField.isFirstResponder {
-            runTextField.text = String(runPickerIntervals[row])
+            let selected1 = pickerView.selectedRow(inComponent: 0)
+            let selected2 = pickerView.selectedRow(inComponent: 1)
+            
+            runTextField.text = "\(runPickerIntervals[0][selected1]) and \(runPickerIntervals[1][selected2])" //String(runPickerIntervals[row])
+            
+            
         } else {
-             walkTextField.text = String(walkPickerIntervals[row])
+             walkTextField.text = String(totalWorkoutLength[row])
         }
     }
     
