@@ -34,6 +34,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        setupPlayAndPauseButtons()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -48,6 +49,23 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     buildPickerViews()
     addToolBarToPickerViews()
  }
+    func setupPlayAndPauseButtons() {
+        
+        let playTap = UITapGestureRecognizer(target: self, action: #selector(handlePlayTap))
+        let pauseTap = UITapGestureRecognizer(target: self, action: #selector(handlePauseTap))
+        playView.addGestureRecognizer(playTap)
+        pauseView.addGestureRecognizer(pauseTap)
+        
+        
+    }
+    
+    @objc func handlePlayTap() {
+        print("play was tapped")
+    }
+    @objc func handlePauseTap() {
+        print("pause was tapped")
+    }
+    
     //MARK: - Picker view building methods
     func buildPickerViews() {
         walkPicker.delegate = self
