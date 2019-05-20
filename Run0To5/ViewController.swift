@@ -10,14 +10,13 @@ import UIKit
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     //MARK: - Properties
-    @IBOutlet weak var playView: UIView! //add gesture recognizer..start counting down - when someone presses play, it starts 5 minute warm up walk, then the intervals they posted , between run-walk, then ends with 5 minute walk
-    @IBOutlet weak var pauseView: UIView! //add gesture recognizer - pause activity
+    @IBOutlet weak var playView: UIView! //start counting down - when someone presses play, it starts 5 minute warm up walk, then the intervals they posted , between run-walk, then ends with 5 minute walk
+    @IBOutlet weak var pauseView: UIView! //
     @IBOutlet weak var mainControlView: UIView!
     @IBOutlet weak var runTextField: UITextField!
     @IBOutlet weak var walkTextField: UITextField!
     @IBOutlet weak var timerLabel: UILabel! //update this with the timer,  -  create timer , update it with values chosen from intervals
     @IBOutlet weak var runPauseLabel: UILabel! //just update whether run/walk
-    
     @IBOutlet weak var totalIntervalsToRun: UILabel! //follow which interval we are on
     
     let runPicker = UIPickerView()
@@ -27,7 +26,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var selectedworkoutLength = NSInteger()
     //MARK: - Data Sources - picker views
     let runPickerIntervals = [[1, 1.5, 2, 3, 5, 6, 8, 10, 12, 15, 20, 25, 30, 40, 50, 60], [1, 1.5, 2]]
-    //let walkPickerIntervals = [1, 1.5, 2]
     let trekRowTitles = ["RUN minutes", "WALK minutes"]
     let totalWorkoutLength = [30, 45, 60, 90, 120]
     //MARK: - Methods
@@ -48,6 +46,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     buildPickerViews()
     addToolBarToPickerViews()
  }
+    //MARK: - Play and Pause buttons methods
     func setupPlayAndPauseButtons() {
         let playTap = UITapGestureRecognizer(target: self, action: #selector(handlePlayTap))
         let pauseTap = UITapGestureRecognizer(target: self, action: #selector(handlePauseTap))
