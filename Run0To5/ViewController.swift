@@ -22,6 +22,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     let runPicker = UIPickerView()
     let walkPicker = UIPickerView()
+    var selectedRunIntervals = NSInteger()
+    var selectedWalkIntervals = NSInteger()
+    var selectedworkoutLength = NSInteger()
     //MARK: - Data Sources - picker views
     let runPickerIntervals = [[1, 1.5, 2, 3, 5, 6, 8, 10, 12, 15, 20, 25, 30, 40, 50, 60], [1, 1.5, 2]]
     //let walkPickerIntervals = [1, 1.5, 2]
@@ -118,14 +121,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if runTextField.isFirstResponder {
-            let selected1 = pickerView.selectedRow(inComponent: 0)
-            let selected2 = pickerView.selectedRow(inComponent: 1)
-        
-            runTextField.text = "\(runPickerIntervals[0][selected1]) run \(runPickerIntervals[1][selected2]) walk"
-            
-            
+             selectedRunIntervals = pickerView.selectedRow(inComponent: 0)
+             selectedWalkIntervals = pickerView.selectedRow(inComponent: 1)
+            runTextField.text = "\(runPickerIntervals[0][selectedRunIntervals]) run \(runPickerIntervals[1][selectedWalkIntervals]) walk"
         } else {
-             walkTextField.text = String(totalWorkoutLength[row])
+            selectedworkoutLength = totalWorkoutLength[row]
+            walkTextField.text = "\(totalWorkoutLength) minutes"
         }
     }
    
