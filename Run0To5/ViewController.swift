@@ -54,6 +54,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         runPicker.dataSource = self
         runTextField.inputView = runPicker
         walkTextField.inputView = walkPicker
+        runTextField.tintColor = .clear //clear textfield cursor
+        walkTextField.tintColor = .clear
+       
+        
     }
     
     func addToolBarToPickerViews() {
@@ -117,7 +121,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         if runTextField.isFirstResponder {
             let selected1 = pickerView.selectedRow(inComponent: 0)
             let selected2 = pickerView.selectedRow(inComponent: 1)
-            
+        
             runTextField.text = "\(runPickerIntervals[0][selected1]) run \(runPickerIntervals[1][selected2]) walk"
             
             
@@ -125,6 +129,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
              walkTextField.text = String(totalWorkoutLength[row])
         }
     }
-    
+   
 }
 
