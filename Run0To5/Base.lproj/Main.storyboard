@@ -31,19 +31,19 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="200"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8yz-7s-uf8" userLabel="runWalkContainerView">
-                                                        <rect key="frame" x="24" y="36" width="334" height="128"/>
+                                                        <rect key="frame" x="8" y="36" width="366" height="128"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mTQ-ii-yk6">
-                                                                <rect key="frame" x="8" y="8" width="318" height="112"/>
+                                                                <rect key="frame" x="8" y="8" width="350" height="112"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Your Sets" borderStyle="roundedRect" placeholder="Run" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="2D0-OZ-uqF">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="155" height="112"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="171" height="112"/>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Total Sets" borderStyle="roundedRect" placeholder="Walk" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hVg-8c-quk">
-                                                                        <rect key="frame" x="163" y="0.0" width="155" height="112"/>
+                                                                        <rect key="frame" x="179" y="0.0" width="171" height="112"/>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
@@ -68,6 +68,7 @@
                                                     <constraint firstAttribute="height" constant="200" id="1y3-XH-S53"/>
                                                     <constraint firstItem="8yz-7s-uf8" firstAttribute="centerY" secondItem="150-mc-SAY" secondAttribute="centerY" id="QLc-Yd-LEu"/>
                                                     <constraint firstItem="8yz-7s-uf8" firstAttribute="centerX" secondItem="150-mc-SAY" secondAttribute="centerX" id="WGj-Xe-VaI"/>
+                                                    <constraint firstItem="8yz-7s-uf8" firstAttribute="leading" secondItem="150-mc-SAY" secondAttribute="leading" constant="8" id="a9A-OT-2dl"/>
                                                     <constraint firstItem="8yz-7s-uf8" firstAttribute="top" secondItem="150-mc-SAY" secondAttribute="top" constant="36" id="xnc-Ec-zeY"/>
                                                 </constraints>
                                             </view>
@@ -148,7 +149,7 @@
                                                                                                         <nil key="highlightedColor"/>
                                                                                                     </label>
                                                                                                 </subviews>
-                                                                                                <color key="backgroundColor" red="0.55634254220000001" green="0.97934550050000002" blue="0.0" alpha="0.79727632705479456" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                                <color key="backgroundColor" red="0.58039215686274503" green="0.91764705882352937" blue="0.0" alpha="0.79727632705479456" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <constraints>
                                                                                                     <constraint firstItem="1AN-nK-kIk" firstAttribute="centerX" secondItem="GtG-D4-cHV" secondAttribute="centerX" id="F80-J7-3Q7"/>
                                                                                                     <constraint firstItem="1AN-nK-kIk" firstAttribute="centerY" secondItem="GtG-D4-cHV" secondAttribute="centerY" id="WhA-ur-NTn"/>
@@ -177,7 +178,7 @@
                                                                                                         <nil key="highlightedColor"/>
                                                                                                     </label>
                                                                                                 </subviews>
-                                                                                                <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="0.79698202054794531" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                                <color key="backgroundColor" red="0.98039215686274506" green="1" blue="0.0039215686274509803" alpha="0.79698202054794531" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <constraints>
                                                                                                     <constraint firstAttribute="height" constant="100" id="EPh-gV-WRn"/>
                                                                                                     <constraint firstItem="jYd-AC-s9Z" firstAttribute="centerY" secondItem="GPH-H5-o9j" secondAttribute="centerY" id="gsz-nE-DSY"/>

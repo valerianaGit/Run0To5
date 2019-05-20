@@ -42,7 +42,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
    
    func setupViews() {
-    //Build Circles out of square views
     mainControlView.layer.cornerRadius = 130
     playView.layer.cornerRadius = 50
     pauseView.layer.cornerRadius = 50
@@ -50,13 +49,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     addToolBarToPickerViews()
  }
     func setupPlayAndPauseButtons() {
-        
         let playTap = UITapGestureRecognizer(target: self, action: #selector(handlePlayTap))
         let pauseTap = UITapGestureRecognizer(target: self, action: #selector(handlePauseTap))
         playView.addGestureRecognizer(playTap)
         pauseView.addGestureRecognizer(pauseTap)
-        
-        
     }
     
     @objc func handlePlayTap() {
