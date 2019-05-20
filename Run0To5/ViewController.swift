@@ -56,8 +56,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         walkTextField.inputView = walkPicker
         runTextField.tintColor = .clear //clear textfield cursor
         walkTextField.tintColor = .clear
-       
-        
+        walkPicker.selectRow(2, inComponent: 0, animated: true)
     }
     
     func addToolBarToPickerViews() {
