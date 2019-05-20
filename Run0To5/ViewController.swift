@@ -50,7 +50,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
  }
     //MARK: - Picker view building methods
     func buildPickerViews() {
-        
         walkPicker.delegate = self
         runPicker.delegate = self
         walkPicker.dataSource = self
@@ -125,8 +124,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
              selectedWalkIntervals = pickerView.selectedRow(inComponent: 1)
             runTextField.text = "\(runPickerIntervals[0][selectedRunIntervals]) run \(runPickerIntervals[1][selectedWalkIntervals]) walk"
         } else {
-            selectedworkoutLength = totalWorkoutLength[row]
-            walkTextField.text = "\(totalWorkoutLength) minutes"
+            selectedworkoutLength = pickerView.selectedRow(inComponent: 0)
+            walkTextField.text = "\(totalWorkoutLength[selectedworkoutLength]) minutes"
         }
     }
    
