@@ -24,6 +24,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var selectedRunIntervals = NSInteger()
     var selectedWalkIntervals = NSInteger()
     var selectedworkoutLength = NSInteger()
+    let timer = Timer()
     //MARK: - Data Sources - picker views
     let runPickerIntervals = [[1, 1.5, 2, 3, 5, 6, 8, 10, 12, 15, 20, 25, 30, 40, 50, 60], [1, 1.5, 2]]
     let trekRowTitles = ["RUN minutes", "WALK minutes"]
@@ -56,6 +57,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     @objc func handlePlayTap() {
         print("play was tapped")
+        timer.fire()
+        //calculate how many intervals based upon a
+        //  start interval sequence
+        //new timer for intervals, each interval is a new instance fo the timer, because it has to represent the time needed,
+        //everytime a walk interval happens, the label on bottom of circle updates to reflect how many we have done/ how many left
+        
+        
     }
     @objc func handlePauseTap() {
         print("pause was tapped")
