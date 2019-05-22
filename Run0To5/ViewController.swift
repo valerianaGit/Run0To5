@@ -57,7 +57,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     @objc func handlePlayTap() {
         print("play was tapped")
-        timer.fire()
+        //timer.fire()
         //calculate how many intervals based upon a
         //  start interval sequence
         //new timer for intervals, each interval is a new instance fo the timer, because it has to represent the time needed,
