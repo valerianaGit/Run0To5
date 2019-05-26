@@ -42,8 +42,16 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
    
    func setupViews() {
     mainControlView.layer.cornerRadius = 130
+    //mainControlView.layer.borderColor = (UIColor.white as! CGColor)
     playView.layer.cornerRadius = 50
     pauseView.layer.cornerRadius = 50
+    walkTextField.layer.cornerRadius = 10
+    runTextField.layer.cornerRadius = 10
+    mainControlView.layer.borderWidth = 5
+    playView.layer.borderWidth = 5
+    pauseView.layer.borderWidth = 5
+    walkTextField.layer.borderWidth = 5
+    runTextField.layer.borderWidth = 5
     buildPickerViews()
     addToolBarToPickerViews()
  }
