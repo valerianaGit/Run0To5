@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     //MARK: - Properties
     @IBOutlet weak var playView: UIView! //start counting down - when someone presses play, it starts 5 minute warm up walk, then the intervals they posted , between run-walk, then ends with 5 minute walk
     @IBOutlet weak var pauseView: UIView! //
@@ -34,6 +34,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         super.viewDidLoad()
         setupViews()
         setupPlayAndPauseButtons()
+        runTextField.delegate = self
+        walkTextField.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -80,6 +82,17 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         print("pause was tapped")
     }
     
+    //MARK: - TextField Delegate
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        walkTextField.resignFirstResponder()
+        runTextField.resignFirstResponder()
+        
+    }
+    
     //MARK: - Picker view building methods
     func buildPickerViews() {
         walkPicker.delegate = self
@@ -101,7 +114,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         runToolBar.isTranslucent = true
         walkToolBar.isTranslucent = true
         let runTitleButton = UIBarButtonItem(title: "Minute Intervals to Run", style: .plain, target: self, action: #selector(donePressed))
-        let walkTitleButton = UIBarButtonItem(title: "Minute Intervals to Walk", style: .plain, target: self, action: #selector(donePressed))
+        let walkTitleButton = UIBarButtonItem(title: "Total Length of Workout", style: .plain, target: self, action: #selector(donePressed))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         runToolBar.setItems([spaceButton, runTitleButton, spaceButton], animated: true)
         walkToolBar.setItems([spaceButton, walkTitleButton, spaceButton], animated: true)
