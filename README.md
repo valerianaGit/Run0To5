@@ -4,7 +4,7 @@
 Hi guys, this is a basic, one view controller app for iOS written in Swift. It is meant to train you to run in intervals from 0 to 5. I just found all other training apps to have too many bells and whistles. 
 
 ### Story of building a UI
-Decided to share with you guys the journey to building this UI. First draft, progression and ultimately what it looks like right now. 
+Decided to share with you guys the journey to building this UI. First draft, progression and ultimately what it looks like right now. you can check out this progression through the commits as well.
 
 <img src="art/5.png" width="200" height="350" >
 <img src="art/4.png" width="200" height="350" >
