@@ -21,21 +21,24 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var totalIntervalsToRun: UILabel! //follow which interval we are on
     let runPicker = UIPickerView()
     let walkPicker = UIPickerView()
-    var selectedRunIntervals = NSInteger()
+    var selectedRunIntervals = 3
     var selectedWalkIntervals = NSInteger()
     var selectedworkoutLength = NSInteger()
    
     //MARK:  Data Sources - picker views
-    let runPickerIntervals = [[1, 1.5, 2, 3, 5, 6, 8, 10, 12, 15, 20, 25, 30, 40, 50, 60], [1, 1.5, 2]]
+    let runPickerIntervals = [[1, 1.5, 2, 3, 5, 6, 8, 10, 12, 15, 20, 25, 30], [1, 1.5, 2]]
     let trekRowTitles = ["RUN minutes", "WALK minutes"]
-    let totalWorkoutLength = [30, 45, 60, 90, 120]
+    let totalWorkoutLengthArray = [30, 45, 60, 90, 120]
     
     //MARK: Timer
     var timer = Timer()
     var alarm = AVAudioPlayer()
-    var walkInterval = 0 //walkPicker[0].chosenitem .ceiling
-    var runInterval = 2 //walkPicker[1].chosenitem .ceiling
+    var walkInterval = 2 //walkPicker[0].chosenitem .ceiling SELECTEDWALK/RUNINTERVAL
+    var runInterval = 3 //walkPicker[1].chosenitem .ceiling
+    var lengthOfWorkout = 10
     var totalNumberOfIntervals = 8 //  totalWorkoutPicker / (walk + run ) .ceiling
+    var currentInterval = 0
+    var time = 0
     enum IntervalType {
         case Run
         case Walk
@@ -63,11 +66,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     pauseView.layer.cornerRadius = 50
     walkTextField.layer.cornerRadius = 10
     runTextField.layer.cornerRadius = 10
-    mainControlView.layer.borderWidth = 5
+   // mainControlView.layer.borderWidth = 5
     playView.layer.borderWidth = 5
     pauseView.layer.borderWidth = 5
     walkTextField.layer.borderWidth = 5
     runTextField.layer.borderWidth = 5
+   // mainControlView.layer.borderColor = UIColor.red.cgColor
     buildPickerViews()
     addToolBarToPickerViews()
  }
@@ -96,15 +100,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     @objc func handlePlayTap() {
-       // print("play was tapped")
         print("tapped play")
-        //timer.fire()
-        //calculate how many intervals based upon a
-        //  start interval sequence
-        //new timer for intervals, each interval is a new instance fo the timer, because it has to represent the time needed,
-        //everytime a walk interval happens, the label on bottom of circle updates to reflect how many we have done/ how many left
-        //build the timer to fire at the required intervals
-        playPauseBehavior()
+       // playPauseBehavior()
+       startTimer()
         
     }
     @objc func handlePauseTap() {
@@ -116,26 +114,33 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
  
     func startTimer() {
+        time = runInterval //currentInterval
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runningTimer),userInfo: nil, repeats: true)
     }
     
     @objc func runningTimer() {
-//        if timeRemaining > 0 && currentInterval == 0 /*&& currentTomato == 0 */{
-//            print("running rogue")
+        time -= 1
+        timerLabel.text = String("\(time) seconds")
+        
+        if time <= 0 {
+            timer.invalidate()
+        }
+        //timerLabel.text = String(currentInterval)
+//        if time > 0 && intervals[currentInterval] == .Run {
+//            runPauseLabel.text = "RUN"
+//            time -= 1
+//        } else if time <= 0 && intervals[currentInterval] == .Walk {
+//            runPauseLabel.text = "Walk"
 //            startNextInterval()
-//        } else if timeRemaining > 0 {
-//            print("running timer phase 1 got called")
-//            timeRemaining -= 1
-//            print("time: \(timeRemaining)")
-//        } else if timeRemaining == 0 {
-//            alarm.play()
-//            timer.invalidate()
-//            //if playButton is pressed, start next interval
-//            startNextInterval()
-//            print("running timer phase 2 got called")
+//        } else {
+//            runPauseLabel.text = "Walk"
+//            time -= 1
 //        }
-//        updateUI()
-       // perform(#selector(ViewController.updateUI), with: nil, afterDelay: 0.0)
+        perform(#selector(ViewController.updateUI), with: nil, afterDelay: 0.0)
+    }
+    
+    @objc func updateUI() {
+        
     }
     
     @objc func startNextInterval() {
@@ -237,25 +242,31 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         if runTextField.isFirstResponder {
             return runPickerIntervals[component].count
         } else {
-           return totalWorkoutLength.count
+           return totalWorkoutLengthArray.count
         }
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if runTextField.isFirstResponder {
             return String(runPickerIntervals[component][row])
         } else {
-            return String(totalWorkoutLength[row])
+            return String(totalWorkoutLengthArray[row])
         }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if runTextField.isFirstResponder {
-             selectedRunIntervals = pickerView.selectedRow(inComponent: 0)
+            let run = runPickerIntervals[0][selectedRunIntervals]
+            let walk = runPickerIntervals[1][selectedWalkIntervals]
+            selectedRunIntervals = pickerView.selectedRow(inComponent: 0)
              selectedWalkIntervals = pickerView.selectedRow(inComponent: 1)
-            runTextField.text = "\(runPickerIntervals[0][selectedRunIntervals]) run \(runPickerIntervals[1][selectedWalkIntervals]) walk"
+            runTextField.text = "\(run) run \(walk) walk"
+            runInterval = Int(run) * 60
+            walkInterval = Int(walk) * 60
+           
         } else {
             selectedworkoutLength = pickerView.selectedRow(inComponent: 0)
-            walkTextField.text = "\(totalWorkoutLength[selectedworkoutLength]) minutes"
+            walkTextField.text = "\(totalWorkoutLengthArray[selectedworkoutLength]) minutes"
+            lengthOfWorkout = totalWorkoutLengthArray[row]
         }
     }
    
