@@ -14,6 +14,7 @@
 		9234DBBD228F0FDE00649E1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9234DBBB228F0FDE00649E1D /* LaunchScreen.storyboard */; };
 		9234DBC8228F0FDE00649E1D /* Run0To5Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234DBC7228F0FDE00649E1D /* Run0To5Tests.swift */; };
 		9234DBD3228F0FDE00649E1D /* Run0To5UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234DBD2228F0FDE00649E1D /* Run0To5UITests.swift */; };
+		92436BD622A8D54B007D8157 /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 92436BD522A8D54B007D8157 /* alarm.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		9234DBCE228F0FDE00649E1D /* Run0To5UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Run0To5UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9234DBD2228F0FDE00649E1D /* Run0To5UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Run0To5UITests.swift; sourceTree = "<group>"; };
 		9234DBD4228F0FDE00649E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92436BD522A8D54B007D8157 /* alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alarm.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				9234DBB9228F0FDE00649E1D /* Assets.xcassets */,
 				9234DBBB228F0FDE00649E1D /* LaunchScreen.storyboard */,
 				9234DBBE228F0FDE00649E1D /* Info.plist */,
+				92436BD722A8D569007D8157 /* Sound */,
 			);
 			path = Run0To5;
 			sourceTree = "<group>";
@@ -123,6 +126,14 @@
 				9234DBD4228F0FDE00649E1D /* Info.plist */,
 			);
 			path = Run0To5UITests;
+			sourceTree = "<group>";
+		};
+		92436BD722A8D569007D8157 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				92436BD522A8D54B007D8157 /* alarm.mp3 */,
+			);
+			path = Sound;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +240,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92436BD622A8D54B007D8157 /* alarm.mp3 in Resources */,
 				9234DBBD228F0FDE00649E1D /* LaunchScreen.storyboard in Resources */,
 				9234DBBA228F0FDE00649E1D /* Assets.xcassets in Resources */,
 				9234DBB8228F0FDD00649E1D /* Main.storyboard in Resources */,
